@@ -1,0 +1,4 @@
+magika
+customtkinter
+pyinstaller
+matplotlib
