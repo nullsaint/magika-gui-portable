@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![Powered by Magika](https://img.shields.io/badge/Powered%20by-Google%20Magika-4285F4.svg)](https://google.github.io/magika/)
-[![Platform](https://img.shields.io/badge/Platform-Windows-0078D6.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6.svg)]()
 
 <br>
 
@@ -23,11 +23,19 @@
 
 ## ⚡ What is this?
 
-**Magika GUI** wraps [Google's Magika](https://github.com/google/magika) — a state-of-the-art AI file identification system — into a beautiful, portable desktop application. No Python knowledge needed. No command line required. Just download, run, and scan.
+**Magika GUI** wraps [Google's Magika](https://github.com/google/magika) — a state-of-the-art AI file identification system — into a beautiful, portable desktop application. 
 
-Magika uses a custom deep learning model (not simple "magic bytes") trained on **millions of files** to identify over **100+ file types** with >99% precision. It's the same technology Google uses internally at scale.
+This project provides **native, zero-dependency binaries** for Windows, Linux, and macOS. No Python knowledge needed. No command line required. Just download, run, and scan.
 
-This GUI makes all of that power accessible to **security researchers**, **forensic analysts**, **penetration testers**, and **curious power users**.
+Magika uses a custom deep learning model trained on **millions of files** to identify over **100+ file types** with >99% precision. It's the same technology Google uses internally at scale.
+
+---
+
+## ✅ Verified Environments
+The current version has been successfully tested and verified on:
+- **Windows**: 10, 11 (Native)
+- **Linux**: Ubuntu (via WSL2 / Native)
+- **macOS**: Intel & Apple Silicon (via Rosetta 2)
 
 ---
 
@@ -47,21 +55,12 @@ This GUI makes all of that power accessible to **security researchers**, **foren
 - **Sortable columns** — Click LABEL (A→Z) or SCORE (▲▼) to sort
 - **Type filter** — Dropdown to filter by any detected file type
 - **Live search** — Find specific files by name instantly
-- **Status counter** — "Showing X / Y files" always visible
 
-### ⚙️ Configurable Detection Engine
-- **High Confidence** — Maximum precision, fewer false positives
-- **Medium Confidence** — Balanced mode
-- **Best Guess** — Maximum recall, catches edge cases
-
-### 📤 Export & Reporting
-- **JSON Export** — Save complete scan results for further analysis
-- Export includes: filename, label, MIME type, and confidence score
-
-### 🖥️ Portable & Zero-Install
-- Single `.exe` file — no Python, no dependencies, no installation
-- Dark-themed professional UI
-- Proper memory cleanup — no zombie processes
+### 📦 Multi-Platform & Portable
+- **Windows**: Single `.exe` file
+- **Linux**: Portable binary + **`.deb` package** for Debian/Ubuntu
+- **macOS**: Portable `.app` (Intel/Universal)
+- No Python or dependencies required on the host system.
 
 ---
 
@@ -79,33 +78,28 @@ This GUI makes all of that power accessible to **security researchers**, **foren
 
 ## 🚀 Quick Start
 
-### Option A: Download the Portable EXE (Recommended)
+### Option A: Download Binaries (Recommended)
 1. Go to [**Releases**](../../releases)
-2. Download `magika-gui-portable.exe`
-3. Double-click to run — that's it!
+2. Download the version for your OS:
+   - **Windows**: `magika-gui-windows.exe`
+   - **Linux**: `magika-gui-linux` or `magika-gui.deb`
+   - **macOS**: `magika-gui-macos.zip`
+3. Run the file — that's it!
+
+> [!NOTE]
+> **macOS Users**: Since the app is not signed, you may need to **Right-Click -> Open** the first time to bypass Gatekeeper.
 
 ### Option B: Run from Source
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/magika-gui.git
-cd magika-gui
+git clone https://github.com/nullsaint/magika-gui-portable.git
+cd magika-gui-portable
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Launch
 python main.py
-```
-
-### Option C: Build the EXE Yourself
-```bash
-pip install -r requirements.txt
-pyinstaller --noconfirm --onefile --windowed \
-  --name magika-gui-portable \
-  --add-data "PATH_TO_SITE_PACKAGES/magika/models;magika/models" \
-  --add-data "PATH_TO_SITE_PACKAGES/magika/config;magika/config" \
-  --add-data "PATH_TO_SITE_PACKAGES/customtkinter;customtkinter" \
-  main.py
 ```
 
 ---
@@ -134,18 +128,6 @@ pyinstaller --noconfirm --onefile --windowed \
 
 ---
 
-## 🔬 Use Cases
-
-| Scenario | How Magika GUI Helps |
-|----------|---------------------|
-| **Malware Analysis** | Identify executables disguised as documents |
-| **Forensic Investigation** | Detect true file types in evidence images |
-| **Data Auditing** | Find misclassified files in large datasets |
-| **Security Testing** | Verify that upload filters can't be bypassed |
-| **Curiosity** | Discover what's really inside any file |
-
----
-
 ## 📦 Tech Stack
 
 | Component | Technology |
@@ -153,21 +135,8 @@ pyinstaller --noconfirm --onefile --windowed \
 | AI Engine | [Google Magika](https://github.com/google/magika) (ONNX Runtime) |
 | GUI Framework | [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter) |
 | Charts | [Matplotlib](https://matplotlib.org/) (Object-Oriented API) |
-| File List | Native `ttk.Treeview` (high-performance) |
+| CI/CD | GitHub Actions (Auto-build for Win/Linux/Mac) |
 | Packaging | [PyInstaller](https://pyinstaller.org/) |
-
----
-
-## 📋 Requirements (Source Only)
-
-```
-magika
-customtkinter
-matplotlib
-pyinstaller
-```
-
-Python **3.10+** required.
 
 ---
 
@@ -199,12 +168,6 @@ Contributions are welcome! Feel free to:
 - 🐛 Report bugs via [Issues](../../issues)
 - 💡 Suggest features
 - 🔧 Submit pull requests
-
----
-
-## ⭐ Star History
-
-If you find this useful, please consider giving it a ⭐ — it helps others discover the project!
 
 ---
 
