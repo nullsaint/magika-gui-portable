@@ -98,7 +98,7 @@ jobs:
           
           cat <<EOF > magika-gui-deb/DEBIAN/control
           Package: magika-gui
-          Version: 1.0.0
+          Version: 1.1.4
           Section: utils
           Priority: optional
           Architecture: amd64
@@ -131,7 +131,7 @@ jobs:
           files: |
             artifacts/magika-gui-windows.exe/magika-gui-windows.exe
             artifacts/magika-gui-linux/magika-gui-linux
-            artifacts/magika-gui-macos.zip/magika-gui-macos.zip
+            artifacts/magika-gui-macos/magika-gui-macos.zip
             artifacts/magika-gui-deb/magika-gui.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
