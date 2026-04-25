@@ -19,7 +19,7 @@ matplotlib.use("Agg")  # Prevent matplotlib from holding display resources
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
-APP_VERSION = "1.1.2"
+APP_VERSION = "1.1.3"
 
 def get_font(size=10, bold=False):
     """Cross-platform font selector."""

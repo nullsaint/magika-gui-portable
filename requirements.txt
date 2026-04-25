@@ -1,4 +1,4 @@
-magika
+magika==1.1.0
 customtkinter
 pyinstaller
 matplotlib
